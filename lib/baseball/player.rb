@@ -1,13 +1,14 @@
 module Baseball
   class Player
     attr_reader :pb, :ab, :h
-    attr_reader :singles, :doubles
+    attr_reader :singles, :doubles, :triples
     def initialize
       @pb = 0
       @ab = 0
       @h  = 0
       @singles = 0
       @doubles = 0
+      @triples = 0
     end
 
     def out!
@@ -24,6 +25,12 @@ module Baseball
       at_bat
       @h  += 1
       @doubles += 1
+    end
+
+    def triple!
+      at_bat
+      @h  += 1
+      @triples += 1
     end
 
     private
