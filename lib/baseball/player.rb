@@ -51,6 +51,10 @@ module Baseball
       @rbi += runs
     end
 
+    def average
+      @h.to_f / @ab
+    end
+
     private
     def at_bat
       @pb += 1
