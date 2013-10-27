@@ -80,21 +80,10 @@ class PlayerTest < Test::Unit::TestCase
     @player.out!
     @player.hit!
     @player.out!
-    assert_equal("0.333", "%.3f" % @player.average)
-  end
-
-  def test_ba
-    @player.out!
-    @player.hit!
-    @player.out!
-    assert_equal("0.333", "%.3f" % @player.ba)
-  end
-
-  def test_avg
-    @player.out!
-    @player.hit!
-    @player.out!
-    assert_equal("0.333", "%.3f" % @player.avg)
+    expected = "0.333"
+    assert_equal(expected, "%.3f" % @player.average)
+    assert_equal(expected, "%.3f" % @player.ba)
+    assert_equal(expected, "%.3f" % @player.avg)
   end
 
   def test_total_bases
@@ -102,15 +91,9 @@ class PlayerTest < Test::Unit::TestCase
     @player.double!
     @player.triple!
     @player.home_run!
-    assert_equal(10, @player.total_bases)
-  end
-
-  def test_tb
-    @player.hit!
-    @player.double!
-    @player.triple!
-    @player.home_run!
-    assert_equal(10, @player.tb)
+    expected = 10
+    assert_equal(expected, @player.total_bases)
+    assert_equal(expected, @player.tb)
   end
 
   def test_on_base_percentage
