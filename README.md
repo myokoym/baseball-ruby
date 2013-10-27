@@ -18,17 +18,19 @@ Or install it yourself as:
 
 ## Usage
 
-    require "baseball"
+```ruby
+require "baseball"
 
-    player = Baseball::Player.new
+player = Baseball::Player.new
 
-    player.out!
-    player.hit!
-    player.out!
+player.out!
+player.hit!
+player.out!
 
-    p player.pb   #=> 3
-    p player.ab   #=> 3
-    p player.h    #=> 1
+p player.pb   #=> 3
+p player.ab   #=> 3
+p player.h    #=> 1
+```
 
 ## Contributing
 
