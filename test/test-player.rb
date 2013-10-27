@@ -96,4 +96,20 @@ class PlayerTest < Test::Unit::TestCase
     @player.out!
     assert_equal("0.333", "%.3f" % @player.avg)
   end
+
+  def test_total_bases
+    @player.hit!
+    @player.double!
+    @player.triple!
+    @player.home_run!
+    assert_equal(10, @player.total_bases)
+  end
+
+  def test_tb
+    @player.hit!
+    @player.double!
+    @player.triple!
+    @player.home_run!
+    assert_equal(10, @player.tb)
+  end
 end

@@ -68,6 +68,11 @@ module Baseball
     alias :ba :average
     alias :avg :average
 
+    def total_bases
+      singles + doubles * 2 + triples * 3 + hr * 4
+    end
+    alias :tb :total_bases
+
     private
     def at_bat
       @pb += 1
