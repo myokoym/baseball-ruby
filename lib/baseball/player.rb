@@ -76,7 +76,7 @@ module Baseball
     def on_base_percentage
       (@h + @bb).to_f / @pb
     end
-    alias :obp on_base_percentage
+    alias :obp :on_base_percentage
 
     private
     def at_bat
