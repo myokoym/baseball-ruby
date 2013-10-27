@@ -3,130 +3,130 @@ require "baseball/player"
 class PlayerTest < Test::Unit::TestCase
   class HitterTest < self
     def setup
-      @player = Baseball::Player.new
+      @hitter = Baseball::Player.new
     end
 
     def test_out
-      @player.out!
-      assert_equal(1, @player.pb)
-      assert_equal(1, @player.ab)
-      assert_equal(0, @player.h)
+      @hitter.out!
+      assert_equal(1, @hitter.pb)
+      assert_equal(1, @hitter.ab)
+      assert_equal(0, @hitter.h)
     end
 
     def test_hit
-      @player.hit!
-      assert_equal(1, @player.pb)
-      assert_equal(1, @player.ab)
-      assert_equal(1, @player.h)
-      assert_equal(1, @player.singles)
-      assert_equal(0, @player.doubles)
+      @hitter.hit!
+      assert_equal(1, @hitter.pb)
+      assert_equal(1, @hitter.ab)
+      assert_equal(1, @hitter.h)
+      assert_equal(1, @hitter.singles)
+      assert_equal(0, @hitter.doubles)
     end
 
     def test_double
-      @player.double!
-      assert_equal(1, @player.pb)
-      assert_equal(1, @player.ab)
-      assert_equal(1, @player.h)
-      assert_equal(0, @player.singles)
-      assert_equal(1, @player.doubles)
+      @hitter.double!
+      assert_equal(1, @hitter.pb)
+      assert_equal(1, @hitter.ab)
+      assert_equal(1, @hitter.h)
+      assert_equal(0, @hitter.singles)
+      assert_equal(1, @hitter.doubles)
     end
 
     def test_triple
-      @player.triple!
-      assert_equal(1, @player.pb)
-      assert_equal(1, @player.ab)
-      assert_equal(1, @player.h)
-      assert_equal(0, @player.singles)
-      assert_equal(1, @player.triples)
+      @hitter.triple!
+      assert_equal(1, @hitter.pb)
+      assert_equal(1, @hitter.ab)
+      assert_equal(1, @hitter.h)
+      assert_equal(0, @hitter.singles)
+      assert_equal(1, @hitter.triples)
     end
 
     def test_home_run
-      @player.home_run!
-      assert_equal(1, @player.pb)
-      assert_equal(1, @player.ab)
-      assert_equal(1, @player.h)
-      assert_equal(0, @player.singles)
-      assert_equal(1, @player.hr)
+      @hitter.home_run!
+      assert_equal(1, @hitter.pb)
+      assert_equal(1, @hitter.ab)
+      assert_equal(1, @hitter.h)
+      assert_equal(0, @hitter.singles)
+      assert_equal(1, @hitter.hr)
     end
 
     def test_bb
-      @player.bb!
-      assert_equal(1, @player.pb)
-      assert_equal(0, @player.ab)
-      assert_equal(0, @player.h)
-      assert_equal(1, @player.bb)
+      @hitter.bb!
+      assert_equal(1, @hitter.pb)
+      assert_equal(0, @hitter.ab)
+      assert_equal(0, @hitter.h)
+      assert_equal(1, @hitter.bb)
     end
 
     def test_so
-      @player.so!
-      assert_equal(1, @player.pb)
-      assert_equal(1, @player.ab)
-      assert_equal(1, @player.so)
-      assert_equal(0, @player.h)
+      @hitter.so!
+      assert_equal(1, @hitter.pb)
+      assert_equal(1, @hitter.ab)
+      assert_equal(1, @hitter.so)
+      assert_equal(0, @hitter.h)
     end
 
     def test_sb
-      @player.sb!
-      assert_equal(0, @player.pb)
-      assert_equal(1, @player.sb)
+      @hitter.sb!
+      assert_equal(0, @hitter.pb)
+      assert_equal(1, @hitter.sb)
     end
 
     def test_add_rbi
-      assert_equal(0, @player.rbi)
-      @player.add_rbi(2)
-      assert_equal(2, @player.rbi)
+      assert_equal(0, @hitter.rbi)
+      @hitter.add_rbi(2)
+      assert_equal(2, @hitter.rbi)
     end
 
     def test_average
-      @player.out!
-      @player.hit!
-      @player.out!
+      @hitter.out!
+      @hitter.hit!
+      @hitter.out!
       expected = "0.333"
-      assert_equal(expected, "%.3f" % @player.average)
-      assert_equal(expected, "%.3f" % @player.ba)
-      assert_equal(expected, "%.3f" % @player.avg)
+      assert_equal(expected, "%.3f" % @hitter.average)
+      assert_equal(expected, "%.3f" % @hitter.ba)
+      assert_equal(expected, "%.3f" % @hitter.avg)
     end
 
     def test_total_bases
-      @player.hit!
-      @player.double!
-      @player.triple!
-      @player.home_run!
+      @hitter.hit!
+      @hitter.double!
+      @hitter.triple!
+      @hitter.home_run!
       expected = 10
-      assert_equal(expected, @player.total_bases)
-      assert_equal(expected, @player.tb)
+      assert_equal(expected, @hitter.total_bases)
+      assert_equal(expected, @hitter.tb)
     end
 
     def test_on_base_percentage
-      @player.hit!
-      @player.out!
-      @player.bb!
-      @player.out!
+      @hitter.hit!
+      @hitter.out!
+      @hitter.bb!
+      @hitter.out!
       expected = 0.5
-      assert_equal(expected, @player.on_base_percentage)
-      assert_equal(expected, @player.obp)
+      assert_equal(expected, @hitter.on_base_percentage)
+      assert_equal(expected, @hitter.obp)
     end
 
     def test_slugging_percentage
-      @player.bb!
-      @player.out!
-      @player.out!
-      @player.hit!
-      @player.double!
+      @hitter.bb!
+      @hitter.out!
+      @hitter.out!
+      @hitter.hit!
+      @hitter.double!
       expected = 0.75
-      assert_equal(expected, @player.slugging_percentage)
-      assert_equal(expected, @player.slg)
+      assert_equal(expected, @hitter.slugging_percentage)
+      assert_equal(expected, @hitter.slg)
     end
 
     def test_on_base_plus_slugging_percentage
-      @player.bb!
-      @player.out!
-      @player.out!
-      @player.hit!
-      @player.double!
+      @hitter.bb!
+      @hitter.out!
+      @hitter.out!
+      @hitter.hit!
+      @hitter.double!
       expected = 1.35
-      assert_equal(expected, @player.on_base_plus_slugging_percentage)
-      assert_equal(expected, @player.ops)
+      assert_equal(expected, @hitter.on_base_plus_slugging_percentage)
+      assert_equal(expected, @hitter.ops)
     end
   end
 end
