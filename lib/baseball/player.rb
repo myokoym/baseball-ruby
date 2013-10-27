@@ -11,22 +11,25 @@ module Baseball
     end
 
     def out!
-      @pb += 1
-      @ab += 1
+      at_bat
     end
 
     def hit!
-      @pb += 1
-      @ab += 1
+      at_bat
       @h  += 1
       @single += 1
     end
 
     def double!
-      @pb += 1
-      @ab += 1
+      at_bat
       @h  += 1
       @double += 1
+    end
+
+    private
+    def at_bat
+      @pb += 1
+      @ab += 1
     end
   end
 end
