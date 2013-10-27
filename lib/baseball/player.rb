@@ -54,7 +54,7 @@ module Baseball
     def average
       @h.to_f / @ab
     end
-    alias :ba, :average
+    alias :ba :average
 
     private
     def at_bat
