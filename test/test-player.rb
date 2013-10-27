@@ -105,4 +105,15 @@ class PlayerTest < Test::Unit::TestCase
     assert_equal(expected, @player.on_base_percentage)
     assert_equal(expected, @player.obp)
   end
+
+  def test_slugging_percentage
+    @player.bb!
+    @player.out!
+    @player.out!
+    @player.hit!
+    @player.double!
+    expected = 0.75
+    assert_equal(expected, @player.slugging_percentage)
+    assert_equal(expected, @player.slg)
+  end
 end

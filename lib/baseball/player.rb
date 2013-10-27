@@ -78,6 +78,11 @@ module Baseball
     end
     alias :obp :on_base_percentage
 
+    def slugging_percentage
+      total_bases.to_f / @ab
+    end
+    alias slg slugging_percentage
+
     private
     def at_bat
       @pb += 1
