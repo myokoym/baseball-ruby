@@ -38,4 +38,13 @@ class PlayerTest < Test::Unit::TestCase
     assert_equal(0, @player.singles)
     assert_equal(1, @player.triples)
   end
+
+  def test_home_run
+    @player.home_run!
+    assert_equal(1, @player.pb)
+    assert_equal(1, @player.ab)
+    assert_equal(1, @player.h)
+    assert_equal(0, @player.singles)
+    assert_equal(1, @player.hr)
+  end
 end
