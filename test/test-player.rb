@@ -112,4 +112,14 @@ class PlayerTest < Test::Unit::TestCase
     @player.home_run!
     assert_equal(10, @player.tb)
   end
+
+  def test_on_base_percentage
+    @player.hit!
+    @player.out!
+    @player.bb!
+    @player.out!
+    expected = 0.5
+    assert_equal(expected, @player.on_base_percentage)
+    assert_equal(expected, @player.obp)
+  end
 end
