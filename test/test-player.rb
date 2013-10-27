@@ -56,6 +56,14 @@ class PlayerTest < Test::Unit::TestCase
     assert_equal(1, @player.bb)
   end
 
+  def test_so
+    @player.so!
+    assert_equal(1, @player.pb)
+    assert_equal(1, @player.ab)
+    assert_equal(1, @player.so)
+    assert_equal(0, @player.h)
+  end
+
   def test_add_rbi
     assert_equal(0, @player.rbi)
     @player.add_rbi(2)
