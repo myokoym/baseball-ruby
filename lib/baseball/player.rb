@@ -1,7 +1,7 @@
 module Baseball
   class Player
-    attr_reader :pb, :ab, :h, :hr, :bb, :so, :sb, :rbi
-    attr_reader :singles, :doubles, :triples
+    attr_accessor :pb, :ab, :h, :hr, :bb, :so, :sb, :rbi
+    attr_accessor :singles, :doubles, :triples
     def initialize
       @pb = 0
       @ab = 0
