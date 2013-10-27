@@ -1,6 +1,6 @@
-# Baseball
+# baseball-ruby
 
-A library for baseball applications.
+A library for baseball applications with Ruby.
 
 ## Installation
 
