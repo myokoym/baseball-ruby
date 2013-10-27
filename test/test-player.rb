@@ -1,6 +1,7 @@
 require "baseball/player"
 
 class PlayerTest < Test::Unit::TestCase
+  class HitterTest < self
   def setup
     @player = Baseball::Player.new
   end
@@ -126,5 +127,6 @@ class PlayerTest < Test::Unit::TestCase
     expected = 1.35
     assert_equal(expected, @player.on_base_plus_slugging_percentage)
     assert_equal(expected, @player.ops)
+  end
   end
 end
