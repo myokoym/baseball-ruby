@@ -1,6 +1,6 @@
 module Baseball
   class Player
-    attr_reader :pb, :ab, :h, :hr, :bb, :so, :rbi
+    attr_reader :pb, :ab, :h, :hr, :bb, :so, :sb, :rbi
     attr_reader :singles, :doubles, :triples
     def initialize
       @pb = 0
@@ -9,6 +9,7 @@ module Baseball
       @hr = 0
       @bb = 0
       @so = 0
+      @sb = 0
       @rbi = 0
       @singles = 0
       @doubles = 0
@@ -51,6 +52,10 @@ module Baseball
     def so!
       at_bat
       @so += 1
+    end
+
+    def sb!
+      @sb += 1
     end
 
     def add_rbi(runs)
