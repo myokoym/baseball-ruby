@@ -33,29 +33,34 @@ module Baseball
     end
 
     def out!
-      at_bat
+      @pb += 1
+      @ab += 1
     end
 
     def hit!
-      at_bat
+      @pb += 1
+      @ab += 1
       @h += 1
       @singles += 1
     end
 
     def double!
-      at_bat
+      @pb += 1
+      @ab += 1
       @h += 1
       @doubles += 1
     end
 
     def triple!
-      at_bat
+      @pb += 1
+      @ab += 1
       @h += 1
       @triples += 1
     end
 
     def home_run!
-      at_bat
+      @pb += 1
+      @ab += 1
       @h += 1
       @hr += 1
     end
@@ -66,7 +71,8 @@ module Baseball
     end
 
     def so!
-      at_bat
+      @pb += 1
+      @ab += 1
       @so += 1
     end
 
@@ -103,11 +109,5 @@ module Baseball
       on_base_percentage + slugging_percentage
     end
     alias :ops :on_base_plus_slugging_percentage
-
-    private
-    def at_bat
-      @pb += 1
-      @ab += 1
-    end
   end
 end
