@@ -1,6 +1,21 @@
 module Baseball
   module Hitter
-    attr_accessor :pb, :ab, :h, :hr, :bb, :so, :sb, :rbi
+    {
+      pb:  :plate_appearance,
+      ab:  :at_bat,
+      h:   :hit,
+      hr:  :home_run,
+      bb:  :base_on_balls,
+      so:  :strike_out,
+      sb:  :stolen_bases,
+      rbi: :runs_batted_in,
+    }.each do |short_name, full_name|
+      self.class_eval do
+        attr_accessor :"#{short_name}"
+        alias :"#{full_name}" :"#{short_name}"
+      end
+    end
+
     attr_accessor :singles, :doubles, :triples
 
     def init_hitter_attributes
