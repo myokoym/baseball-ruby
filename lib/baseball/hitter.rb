@@ -21,7 +21,7 @@ module Baseball
     def init_hitter_attributes
       @pb = 0
       @ab = 0
-      @h  = 0
+      @h = 0
       @hr = 0
       @bb = 0
       @so = 0
@@ -38,25 +38,25 @@ module Baseball
 
     def hit!
       at_bat
-      @h  += 1
+      @h += 1
       @singles += 1
     end
 
     def double!
       at_bat
-      @h  += 1
+      @h += 1
       @doubles += 1
     end
 
     def triple!
       at_bat
-      @h  += 1
+      @h += 1
       @triples += 1
     end
 
     def home_run!
       at_bat
-      @h  += 1
+      @h += 1
       @hr += 1
     end
 
