@@ -40,6 +40,11 @@ class PlayerTest < Test::Unit::TestCase
       assert_equal(1, @hitter.triples)
     end
 
+    def test_run
+      @hitter.run!
+      assert_equal(1, @hitter.r)
+    end
+
     def test_home_run
       @hitter.home_run!
       assert_equal(1, @hitter.pb)

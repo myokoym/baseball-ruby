@@ -4,6 +4,7 @@ module Baseball
       pb:  :plate_appearance,
       ab:  :at_bat,
       h:   :hit,
+      r:   :run,
       hr:  :home_run,
       bb:  :base_on_balls,
       so:  :strike_out,
@@ -22,6 +23,7 @@ module Baseball
       @pb = 0
       @ab = 0
       @h = 0
+      @r = 0
       @hr = 0
       @bb = 0
       @so = 0
@@ -56,6 +58,10 @@ module Baseball
       @ab += 1
       @h += 1
       @triples += 1
+    end
+
+    def run!
+      @r += 1
     end
 
     def home_run!
